@@ -8,7 +8,7 @@ var app = express();
 var PORT = process.env.PORT;//The process.env property returns an object containing the user environment.
 
 // Expose the public directory to access CSS files
-app.use(express.static(path.join(__dirname, './app/public'))); //https://www.npmjs.com/package/path.join
+app.use(express.static(path.join(__dirname, './app/public'))); //https://www.npmjs.com/package/express-static https://www.npmjs.com/package/path.join
 
 // Add middleware for parsing incoming request bodies
 app.use(bodyParser.json());
