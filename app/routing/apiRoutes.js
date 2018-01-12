@@ -5,11 +5,11 @@ var friends = require('../data/friends.js');
 // Export API routes
 module.exports = function(app) {    //https://nodejs.org/api/modules.html#modules_module_exports
 	// Total list of friend entries
-	app.get('/api/friends', function(req, res) {
+	app.get('/api/friends', function(req, res) {   //http://expressjs.com/en/guide/routing.html
 		res.json(friends);
 	});
 	// Add new friend entry
-	app.post('/api/friends', function(req, res) {
+	app.post('/api/friends', function(req, res) {  //http://expressjs.com/en/guide/routing.html
 		// Capture the user input object
 		var userInput = req.body;
 		var userResponses = userInput.scores;
@@ -17,7 +17,7 @@ module.exports = function(app) {    //https://nodejs.org/api/modules.html#module
 		// Compute best friend match
 		var matchName = '';
 		var matchImage = '';
-		var totalDifference = 10000; // Make the initial value big for comparison
+		var totalDifference = 40000; // Make the initial value big for comparison
 
 		// Examine all existing friends in the list
 		for (var i = 0; i < friends.length; i++) {	
