@@ -36,6 +36,6 @@ module.exports = function(app) {
 		// Add new user
 		friends.push(userInput);
 		// Send response
-		res.json({status: 'OK', matchName: matchName, matchImage: matchImage});
+		res.json({status: 'OK', matchName: matchName, matchImage: matchImage}); //https://www.npmjs.com/package/res-json
 	});
 };
