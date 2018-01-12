@@ -233,14 +233,14 @@
             <img id="userMatchImage" class="materialboxed" width="650" src="">
         </div>
         <div class="modal-footer">
-            <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a>
+            <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a><!--href to survey.html gives the same result -->
         </div>
     </div>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('select').material_select();//Materialize material_select method http://materializecss.com/forms.html
-            $('.modal').modal({  //Materialize modal options method  http://materializecss.com/modals.html
+        $(document).ready(function () {                                         // https://api.jquery.com/ready/
+            $('select').material_select();//Materialize material_select method     http://materializecss.com/forms.html
+            $('.modal').modal({  //Materialize modal options method                http://materializecss.com/modals.html
                 dismissible: false, // Modal can be dismissed by clicking outside of the modal
                 opacity: .5, // Opacity of modal background
                 inDuration: 300, // Transition in duration
@@ -250,12 +250,12 @@
             });
         });
         // Activate submit button
-        $('#submitButton').on('click', function (event) {
+        $('#submitButton').on('click', function (event) { //http://api.jquery.com/on/
             event.preventDefault();
             // Gather user inputs
             var userInput = {
-                name: $('#userName').val().trim(),
-                photo: $('#userPhoto').val().trim(),
+                name: $('#userName').val().trim(),        //http://api.jquery.com/val/
+                photo: $('#userPhoto').val().trim(),      //https://api.jquery.com/jquery.trim/
                 scores: [
                     $('#question1').val().trim(),
                     $('#question2').val().trim(),
@@ -271,12 +271,12 @@
             };
 
             // Add user inputs to friends list
-            $.post('/api/friends', userInput)
-                .done(function (data) {
+            $.post('/api/friends', userInput)              //https://api.jquery.com/jquery.post/
+                .done(function (data) {                    //https://api.jquery.com/deferred.done/
 
                     // Set the name and image values of friend match
-                    $('#userMatch').html(data.matchName);
-                    $("#userMatchImage").attr("src", data.matchImage);
+                    $('#userMatch').html(data.matchName);  //http://api.jquery.com/html/
+                    $("#userMatchImage").attr("src", data.matchImage);//http://api.jquery.com/attr/
                     // Pop open the modal dialog
                     $('#modal1').modal('open');
                 });
